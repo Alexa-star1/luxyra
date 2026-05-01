@@ -30,6 +30,7 @@ if (!div) {
         <p>₹${p.price}</p>
         <button onclick="addToCart()">Add to Cart</button>
       </div>
+      onclick="viewProduct('${p.name}')"
     `;
   });
 
@@ -37,4 +38,8 @@ if (!div) {
 
 function addToCart(){
   alert("Added!");
+}
+
+function viewProduct(name){
+  alert("Open product page: " + name);
 }
