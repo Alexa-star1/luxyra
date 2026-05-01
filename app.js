@@ -9,8 +9,7 @@ const products = [
     price: 999,
     image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf"
   }
-];
-const products = [
+
   {name:"LUXYRA Street Tee",price:599,image:"..."},
   {name:"LUXYRA Hoodie",price:999,image:"..."},
   {name:"Oversized Tee",price:699,image:"https://images.unsplash.com/photo-1503342217505-b0a15ec3261c"},
