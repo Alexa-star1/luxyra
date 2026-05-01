@@ -2,9 +2,7 @@ const products = [
   {
     name: "LUXYRA Street Tee",
     price: 599,
-    image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
-    productId: "ID",
-    variantId: "ID"
+    image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab"
   },
   {
     name: "LUXYRA Hoodie",
@@ -12,22 +10,26 @@ const products = [
     image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf"
   }
 ];
-const div = document.getElementById("products");
-<button onclick='addToCart(...)'>Add to Cart</button>
-products.forEach(p => {
-  div.innerHTML += `
-    <div class="card">
-      <img src="${p.image}" width="100%">
-      <h3>${p.name}</h3>
-      <p>₹${p.price}</p>
-      
-    </div>
-  `;
-});
 
-function addToCart(p){
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  cart.push(p);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  alert("Added to cart");
+const div = document.getElementById("products");
+
+if (!div) {
+  console.error("Products div not found!");
+} else {
+
+  products.forEach(p => {
+    div.innerHTML += `
+      <div class="card">
+        <img src="${p.image}">
+        <h3>${p.name}</h3>
+        <p>₹${p.price}</p>
+        <button onclick="addToCart()">Add to Cart</button>
+      </div>
+    `;
+  });
+
+}
+
+function addToCart(){
+  alert("Added!");
 }
