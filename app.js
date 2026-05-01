@@ -2,9 +2,14 @@ const products = [
   {
     name: "LUXYRA Street Tee",
     price: 599,
-    image: "https://via.placeholder.com/150",
-    productId: "PRINTIFY_PRODUCT_ID",
-    variantId: "VARIANT_ID"
+    image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+    productId: "ID",
+    variantId: "ID"
+  },
+  {
+    name: "LUXYRA Hoodie",
+    price: 999,
+    image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf"
   }
 ];
 
