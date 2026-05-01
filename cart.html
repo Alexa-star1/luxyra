@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cart</title>
+</head>
+
+<body>
+
+<h2>Your Cart</h2>
+<div id="items"></div>
+<h3 id="total"></h3>
+
+<input id="name" placeholder="Name">
+<input id="address" placeholder="Address">
+<input id="phone" placeholder="Phone">
+
+<button onclick="pay()">Pay Now</button>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let total = 0;
+cart.forEach(i => {
+  total += i.price;
+  document.getElementById("items").innerHTML += `<p>${i.name}</p>`;
+});
+
+document.getElementById("total").innerText = "₹" + total;
+
+function pay(){
+  const options = {
+    key: "YOUR_RAZORPAY_KEY",
+    amount: total * 100,
+    currency: "INR",
+    handler: function(){
+      placeOrder();
+    }
+  };
+
+  new Razorpay(options).open();
+}
+
+function placeOrder(){
+
+  fetch("https://your-backend-url/order", {
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body: JSON.stringify({
+      name: document.getElementById("name").value,
+      address: document.getElementById("address").value,
+      phone: document.getElementById("phone").value,
+      items: cart
+    })
+  })
+  .then(res=>res.json())
+  .then(()=>{
+    alert("Order placed!");
+    localStorage.removeItem("cart");
+  });
+}
+</script>
+
+</body>
+</html>
