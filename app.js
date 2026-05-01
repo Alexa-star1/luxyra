@@ -12,7 +12,6 @@ const products = [
     image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf"
   }
 ];
-
 const div = document.getElementById("products");
 
 products.forEach(p => {
