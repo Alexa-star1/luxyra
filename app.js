@@ -13,14 +13,14 @@ const products = [
   }
 ];
 const div = document.getElementById("products");
-
+<button onclick='addToCart(...)'>Add to Cart</button>
 products.forEach(p => {
   div.innerHTML += `
     <div class="card">
       <img src="${p.image}" width="100%">
       <h3>${p.name}</h3>
       <p>₹${p.price}</p>
-      <button onclick='addToCart(${JSON.stringify(p)})'>Add</button>
+      
     </div>
   `;
 });
